@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Setup a cron job for cert renewal. The cron job is schedules to run every 75 days starting from the day this script is running.
 today=$(date +'%Y-%m-%d')
 domain=$1

@@ -21,6 +21,15 @@ if [[ -z "$file" ]]; then
     exit 1
 fi
 
+if [[ -z "$temp" ]]; then
+    echo "Must provide the temp option." 1>&2
+    exit 1
+fi
+
+if [[ "$temp" == "true" ]]
+then
+bash create-domain.sh --domain $domain 
+fi
 
 IMAGE=ubuntu/apache2:2.4-21.04_beta
 
@@ -29,4 +38,4 @@ docker run -d --name $file  -v /home/ubuntu/data/web/$file/:/var/www/html -e TZ=
 
 port=$(docker inspect -f '{{ (index (index .NetworkSettings.Ports "80/tcp") 0).HostPort }}' $file)
 
-bash /home/ubuntu/scripts/set_up_proxy.sh --domain $domain --port $port
+bash set_up_proxy.sh --domain $domain --port $port
