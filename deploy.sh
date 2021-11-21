@@ -28,7 +28,7 @@ fi
 
 if [[ "$temp" == "true" ]]
 then
-bash $PWD/create-domain.sh --domain $domain 
+bash /home/ubuntu/scripts/create-domain.sh --domain $domain 
 fi
 
 IMAGE=ubuntu/apache2:2.4-21.04_beta
@@ -38,4 +38,4 @@ docker run -d --name $file  -v /home/ubuntu/data/web/$file/:/var/www/html -e TZ=
 
 port=$(docker inspect -f '{{ (index (index .NetworkSettings.Ports "80/tcp") 0).HostPort }}' $file)
 
-bash $PWD/set_up_proxy.sh --domain $domain --port $port
+bash /home/ubuntu/scripts/set_up_proxy.sh --domain $domain --port $port
