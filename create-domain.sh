@@ -38,7 +38,7 @@ EOF
 )"
 
 
-echo $${route53_config} > /tmp/config.json
+echo $route53_config > /tmp/config.json
 
 # The follwing will update rout53 record using the above config. It uses the AWS credentials to perform this task and the HOSTED_ZONE_ID of the record.
 echo "updating rout53 record"
