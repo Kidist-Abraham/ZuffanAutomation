@@ -44,6 +44,6 @@ sudo ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
 
 sudo systemctl restart nginx
 
-bash $pwd/cron-cert.sh  $domain 
+bash $PWD/cron-cert.sh  $domain 
 
 echo "Finish setting up"
