@@ -31,6 +31,9 @@ then
 bash /home/ubuntu/scripts/create-domain.sh --domain $domain 
 fi
 
+today=$(date +'%Y-%m-%d')
+echo "I received a call with domain: $domain, file: $file, temp: $temp on $today"  >> /home/ubuntu/logs/logs.txt
+
 IMAGE=ubuntu/apache2:2.4-21.04_beta
 
 
